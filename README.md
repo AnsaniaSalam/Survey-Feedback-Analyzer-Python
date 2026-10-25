@@ -63,15 +63,14 @@ Number of unique words: 37
 
 ---
 
+
 ## 📂 Project Structure
 
-```text
-Survey-Feedback-Analyzer-Python/
-├── Survey_Feedback_Analyzer.ipynb   # the full project with outputs
-├── README.md                        # this file
-└── LICENSE                          # MIT license
-```
-
+| File | Description |
+|------|-------------|
+| 📓 [Survey_Feedback_Analyzer.ipynb](Survey_Feedback_Analyzer.ipynb) | The full project notebook, with all steps and saved outputs |
+| 📄 [README.md](README.md) | Project overview and how to run it |
+| ⚖️ [LICENSE](LICENSE) | MIT license |
 ---
 
 ## 🧠 How It Works
