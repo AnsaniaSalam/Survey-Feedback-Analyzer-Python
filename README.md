@@ -5,10 +5,13 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-2EA44F)
+![Focus](https://img.shields.io/badge/Focus-Text%20Cleaning%20%26%20Analysis-7C3AED)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Status](https://img.shields.io/badge/status-complete-success)
 
 **A text-based feedback analysis tool built with core Python.**
+
+👉 **[Open the notebook](./Survey_Feedback_Analyzer.ipynb)**
 
 </div>
 
@@ -22,67 +25,85 @@ The feedback is kept in a dictionary of lists (serial number, name, comment, rat
 
 ---
 
+## 🗺️ Project Flow
+
+```mermaid
+flowchart LR
+    A["📥 Load<br/>10 preloaded feedbacks"] --> B["✍️ Add<br/>new feedbacks from input"]
+    B --> C["🧹 Clean<br/>punctuation, spaces, case"]
+    C --> D["🔎 Search<br/>word counts"]
+    D --> E["📊 Summarise<br/>rating, longest, unique words"]
+    E --> F["⭐ Sort<br/>by rating"]
+
+    style A fill:#E0E7FF,stroke:#4F46E5,color:#1E1B4B
+    style B fill:#DBEAFE,stroke:#2563EB,color:#172554
+    style C fill:#CFFAFE,stroke:#0891B2,color:#083344
+    style D fill:#D1FAE5,stroke:#059669,color:#022C22
+    style E fill:#FEF3C7,stroke:#D97706,color:#451A03
+    style F fill:#FCE7F3,stroke:#DB2777,color:#500724
+```
+
+---
+
 ## ✨ Features
 
 | Feature | What it does |
 |---------|--------------|
-| 📥 Preloaded data | Starts with 10 feedback entries in a dictionary of lists |
-| ✍️ Add your own | Takes name, feedback and a rating (1-5) from the user, with input checking |
-| 🧹 Text cleaning | Removes punctuation, extra spaces and capital letters |
-| 🔎 Word search | `count_word_in_feedbacks(word)` counts how many feedbacks contain a word |
-| 📊 Summary | Average rating, longest comment and all unique words |
-| ⭐ Sorting | Lists feedbacks from highest to lowest rating |
-| 📈 Bonus | Rating spread bar chart and most used words |
+| 📥 **Preloaded data** | Starts with 10 feedback entries in a dictionary of lists |
+| ✍️ **Add your own** | Takes name, feedback and a rating from 1 to 5, and asks again if the input is wrong |
+| 🔢 **Automatic serial numbers** | New entries continue from `S_No` 11 without the user typing them |
+| 🧹 **Text cleaning** | Removes punctuation, extra spaces and capital letters |
+| 🔎 **Word search** | `count_word_in_feedbacks(word)` counts how many feedbacks contain a word, ignoring case |
+| 📊 **Summary** | Average rating, longest comment by word count, and all unique words |
+| ⭐ **Sorting** | Lists feedbacks from highest to lowest rating using `zip()` and `sorted()` |
 
 ---
 
 ## 🖥️ Sample Output
 
-From a run with 12 feedbacks (10 preloaded and 2 added):
+From the saved run in the notebook: 12 feedbacks (10 preloaded and 2 added).
+
+| 🗂️ Feedbacks | ⭐ Average Rating | 📝 Longest Comment | 🔤 Unique Words |
+|:---:|:---:|:---:|:---:|
+| **12** | **3.58** | **7 words** | **30** |
 
 ```text
-Feedbacks containing "good":      3
-Feedbacks containing "poor":      3
-Feedbacks containing "excellent": 1
+Feedbacks containing "good":      4
+Feedbacks containing "poor":      2
+Feedbacks containing "excellent": 2
 
-Average rating: 3.42
+Average rating: 3.58
 
 Longest feedback : poor response and poor handling of issue
 Given by         : Kiran
 Word count       : 7
 Rating           : 1
 
-Number of unique words: 37
-
-5 star | ████ 4
-4 star | ██ 2
-3 star | ██ 2
-2 star | ███ 3
-1 star | █ 1
+Number of unique words: 30
 ```
 
 ---
 
-
 ## 📂 Project Structure
 
-| File | Description |
-|------|-------------|
-| 📓 [Survey_Feedback_Analyzer.ipynb](Survey_Feedback_Analyzer.ipynb) | The full project notebook, with all steps and saved outputs |
-| 📄 [README.md](README.md) | Project overview and how to run it |
-| ⚖️ [LICENSE](LICENSE) | MIT license |
+| File | What it is |
+|------|------------|
+| 📓 [Survey_Feedback_Analyzer.ipynb](./Survey_Feedback_Analyzer.ipynb) | The full project: every step with code, explanations and saved outputs |
+| 📄 [README.md](./README.md) | Project overview and how to run it |
+| ⚖️ [LICENSE](./LICENSE) | MIT license terms |
+
 ---
 
 ## 🧠 How It Works
 
 | Step | What happens |
 |------|--------------|
-| 1 | The 10 feedbacks are loaded into `feedback_data` |
-| 2 | The user chooses how many more to add. Each one is checked and added, and serial numbers continue from 11 |
-| 3 | Every comment is cleaned using `replace()`, `split()`, `join()`, `strip()` and `lower()` |
-| 4 | `count_word_in_feedbacks()` counts feedbacks containing "good", "poor" and "excellent" |
-| 5 | The final data, average rating, longest comment and unique words are printed |
-| Extra | Feedbacks are sorted by rating with `zip()` and `sorted()` |
+| **1. Load** | The 10 feedbacks are loaded into `feedback_data` |
+| **2. Add** | The user chooses how many more to add. Each one is checked and added, and serial numbers continue from 11 |
+| **3. Clean** | Every comment is cleaned using `replace()`, `split()`, `join()`, `strip()` and `lower()` |
+| **4. Search** | `count_word_in_feedbacks()` counts feedbacks containing "good", "poor" and "excellent" |
+| **5. Summarise** | The final data, average rating, longest comment and unique words are printed |
+| **Extra** | Feedbacks are sorted by rating with `zip()` and `sorted()` |
 
 ---
 
@@ -97,7 +118,7 @@ Number of unique words: 37
 **You need:** Python 3.8 or higher and Jupyter Notebook. No other libraries.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Survey-Feedback-Analyzer-Python.git
+git clone https://github.com/AnsaniaSalam/Survey-Feedback-Analyzer-Python.git
 cd Survey-Feedback-Analyzer-Python
 jupyter notebook Survey_Feedback_Analyzer.ipynb
 ```
@@ -114,16 +135,17 @@ Run the cells from top to bottom. Step 2 asks for input, so type your answers in
 
 ---
 
-## 👩‍💻 Author
+## 👤 Author
 
 **Ansania Salam**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ansania%20Salam-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ansania-salam)
+[![GitHub](https://img.shields.io/badge/GitHub-AnsaniaSalam-181717?logo=github&logoColor=white)](https://github.com/AnsaniaSalam)
 
 ---
 
-## 📄 License
+## ⚖️ License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:06B6D4,100:4F46E5&height=100&section=footer" alt="footer" />
