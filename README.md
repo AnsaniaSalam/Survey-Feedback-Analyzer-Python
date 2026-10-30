@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4F46E5,100:06B6D4&height=200&section=header&text=Survey%20Feedback%20Analyzer&fontSize=42&fontColor=ffffff&desc=Text%20analysis%20in%20core%20Python&descAlignY=68" alt="Survey Feedback Analyzer banner" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4F46E5,100:06B6D4&height=200&section=header&text=Survey%20Feedback%20Analyzer&fontSize=42&fontColor=ffffff&desc=Text%20analysis%20in%20core%20Python&descAlignY=68" alt="Survey Feedback Analyzer using Python banner" />
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
